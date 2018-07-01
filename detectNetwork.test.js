@@ -293,5 +293,139 @@ describe('Maestro', function() {
   });
 });
 
-describe('should support China UnionPay')
-describe('should support Switch')
+describe('China UnionPay', function() {
+  var should = chai.should();
+  var baseTestStr16 = '1234567890';
+  var baseTestStr17 = '12345678901';
+  var baseTestStr18 = '123456789012';
+  var baseTestStr19 = '1234567890123';
+
+  for (let testNum = 622126; testNum <= 622925; testNum++) {
+    it('has a prefix from 622126 to 622925 and a length of 16', function() {
+      detectNetwork(testNum.toString() + baseTestStr16).should.equal('China UnionPay');
+    });
+    it('has a prefix from 622126 to 622925 and a length of 17', function() {
+      detectNetwork(testNum.toString() + baseTestStr17).should.equal('China UnionPay');
+    });
+    it('has a prefix from 622126 to 622925 and a length of 18', function() {
+      detectNetwork(testNum.toString() + baseTestStr18).should.equal('China UnionPay');
+    });
+    it('has a prefix from 622126 to 622925 and a length of 19', function() {
+      detectNetwork(testNum.toString() + baseTestStr19).should.equal('China UnionPay');
+    });
+  }
+
+  for (let testNum = 6282; testNum <= 6288; testNum++) {
+    it('has a prefix from 6282 to 6288 and a length of 16', function() {
+      detectNetwork(testNum.toString() + baseTestStr16 + '00').should.equal('China UnionPay');
+    });
+    it('has a prefix from 6282 to 6288 and a length of 17', function() {
+      detectNetwork(testNum.toString() + baseTestStr17 + '00').should.equal('China UnionPay');
+    });
+    it('has a prefix from 6282 to 6288 and a length of 18', function() {
+      detectNetwork(testNum.toString() + baseTestStr18 + '00').should.equal('China UnionPay');
+    });
+    it('has a prefix from 6282 to 6288 and a length of 19', function() {
+      detectNetwork(testNum.toString() + baseTestStr19 + '00').should.equal('China UnionPay');
+    });
+  }
+
+  for (let testNum = 624; testNum <= 626; testNum++) {
+    it('has a prefix from 624 to 626 and a length of 16', function() {
+      detectNetwork(testNum.toString() + baseTestStr16 + '000').should.equal('China UnionPay');
+    });
+    it('has a prefix from 624 to 626 and a length of 17', function() {
+      detectNetwork(testNum.toString() + baseTestStr17 + '000').should.equal('China UnionPay');
+    });
+    it('has a prefix from 624 to 626 and a length of 18', function() {
+      detectNetwork(testNum.toString() + baseTestStr18 + '000').should.equal('China UnionPay');
+    });
+    it('has a prefix from 624 to 626 and a length of 19', function() {
+      detectNetwork(testNum.toString() + baseTestStr19 + '000').should.equal('China UnionPay');
+    });
+  }
+});
+
+describe('Switch', function() {
+  var should = chai.should();
+
+  it('has a prefix of 4903 and a length of 16', function() {
+    detectNetwork('4903345678901234').should.equal('Switch');
+  });
+  it('has a prefix of 4903 and a length of 18', function() {
+    detectNetwork('490334567890123456').should.equal('Switch');
+  });
+  it('has a prefix of 4903 and a length of 19', function() {
+    detectNetwork('4903345678901234567').should.equal('Switch');
+  });
+
+  it('has a prefix of 4905 and a length of 16', function() {
+    detectNetwork('4905345678901234').should.equal('Switch');
+  });
+  it('has a prefix of 4905 and a length of 18', function() {
+    detectNetwork('490534567890123456').should.equal('Switch');
+  });
+  it('has a prefix of 4905 and a length of 19', function() {
+    detectNetwork('4905345678901234567').should.equal('Switch');
+  });
+
+  it('has a prefix of 4911 and a length of 16', function() {
+    detectNetwork('4911345678901234').should.equal('Switch');
+  });
+  it('has a prefix of 4911 and a length of 18', function() {
+    detectNetwork('491134567890123456').should.equal('Switch');
+  });
+  it('has a prefix of 4911 and a length of 19', function() {
+    detectNetwork('4911345678901234567').should.equal('Switch');
+  });
+
+  it('has a prefix of 4936 and a length of 16', function() {
+    detectNetwork('4936345678901234').should.equal('Switch');
+  });
+  it('has a prefix of 4936 and a length of 18', function() {
+    detectNetwork('493634567890123456').should.equal('Switch');
+  });
+  it('has a prefix of 4936 and a length of 19', function() {
+    detectNetwork('4936345678901234567').should.equal('Switch');
+  });
+
+  it('has a prefix of 6333 and a length of 16', function() {
+    detectNetwork('6333345678901234').should.equal('Switch');
+  });
+  it('has a prefix of 6333 and a length of 18', function() {
+    detectNetwork('633334567890123456').should.equal('Switch');
+  });
+  it('has a prefix of 6333 and a length of 19', function() {
+    detectNetwork('6333345678901234567').should.equal('Switch');
+  });
+
+  it('has a prefix of 564182 and a length of 16', function() {
+    detectNetwork('5641825678901234').should.equal('Switch');
+  });
+  it('has a prefix of 564182 and a length of 18', function() {
+    detectNetwork('564182567890123456').should.equal('Switch');
+  });
+  it('has a prefix of 564182 and a length of 19', function() {
+    detectNetwork('5641825678901234567').should.equal('Switch');
+  });
+
+  it('has a prefix of 633110 and a length of 16', function() {
+    detectNetwork('6331105678901234').should.equal('Switch');
+  });
+  it('has a prefix of 633110 and a length of 18', function() {
+    detectNetwork('633110567890123456').should.equal('Switch');
+  });
+  it('has a prefix of 633110 and a length of 19', function() {
+    detectNetwork('6331105678901234567').should.equal('Switch');
+  });
+
+  it('has a prefix of 6759 and a length of 16', function() {
+    detectNetwork('6759345678901234').should.equal('Switch');
+  });
+  it('has a prefix of 6759 and a length of 18', function() {
+    detectNetwork('675934567890123456').should.equal('Switch');
+  });
+  it('has a prefix of 6759 and a length of 19', function() {
+    detectNetwork('6759345678901234567').should.equal('Switch');
+  });
+});
