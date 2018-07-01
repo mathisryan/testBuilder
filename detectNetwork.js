@@ -33,16 +33,36 @@ var detectNetwork = function(cardNumber) {
     }
   }
 
+  if (cardNumber.length === 16 || cardNumber.length === 18 ||
+    cardNumber.length === 19) {
+    if (cardNumber.slice(0, 4) === '4903' || cardNumber.slice(0, 4) === '4905' ||
+      cardNumber.slice(0, 4) === '4911' || cardNumber.slice(0, 4) === '4936' ||
+      cardNumber.slice(0, 6) === '564182' || cardNumber.slice(0, 6) === '633110' ||
+      cardNumber.slice(0, 4) === '6333' || cardNumber.slice(0, 4) === '6759') {
+        return 'Switch';
+      }
+  }
+
   if (cardNumber.length === 13 && cardNumber.charAt(0) === '4') {
     return 'Visa';
   }
 
   if (cardNumber.length === 19 && cardNumber.charAt(0) === '4') {
-    return 'Visa';
+    if (cardNumber.slice(0, 4) === '4903' || cardNumber.slice(0, 4) === '4905' ||
+      cardNumber.slice(0, 4) === '4911' || cardNumber.slice(0, 4) === '4936') {
+        return 'Switch';
+      } else {
+      return 'Visa';
+      }
   }
 
   if (cardNumber.length === 16 && cardNumber.charAt(0) === '4') {
-    return 'Visa';
+    if (cardNumber.slice(0, 4) === '4903' || cardNumber.slice(0, 4) === '4905' ||
+      cardNumber.slice(0, 4) === '4911' || cardNumber.slice(0, 4) === '4936') {
+        return 'Switch';
+      }else{
+      return 'Visa';
+      }
   }
 
   if (cardNumber.length === 16 || cardNumber.length === 19) {
@@ -62,5 +82,14 @@ var detectNetwork = function(cardNumber) {
       cardNumber.slice(0, 4) === '5038' || cardNumber.slice(0, 4) === '6304') {
         return 'Maestro';
     }
+  }
+
+  if (cardNumber.length === 16 || cardNumber.length === 17 ||
+    cardNumber.length === 18 || cardNumber.length === 19) {
+    if (622126 <= Number(cardNumber.slice(0, 6)) <= 622925 ||
+      6282 <= Number(cardNumber.slice(0, 4)) <= 6288 ||
+      624 <= Number(cardNumber.slice(0, 3)) <= 626) {
+        return 'China UnionPay';
+      }
   }
 }
