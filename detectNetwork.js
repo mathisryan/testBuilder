@@ -44,4 +44,23 @@ var detectNetwork = function(cardNumber) {
   if (cardNumber.length === 16 && cardNumber.charAt(0) === '4') {
     return 'Visa';
   }
+
+  if (cardNumber.length === 16 || cardNumber.length === 19) {
+    if (cardNumber.slice(0, 4) === '6011' || cardNumber.slice(0, 3) === '644' ||
+      cardNumber.slice(0, 3) === '645' || cardNumber.slice(0, 3) === '646' ||
+      cardNumber.slice(0, 3) === '647' || cardNumber.slice(0, 3) === '648' ||
+      cardNumber.slice(0, 3) === '649' || cardNumber.slice(0, 2) === '65') {
+        return 'Discover';
+      }
+  }
+
+  if (cardNumber.length === 12 || cardNumber.length === 13 ||
+    cardNumber.length === 14 || cardNumber.length === 15 ||
+    cardNumber.length === 16 || cardNumber.length === 17 ||
+    cardNumber.length === 18 || cardNumber.length === 19) {
+    if (cardNumber.slice(0, 4) === '5018' || cardNumber.slice(0, 4) === '5020' ||
+      cardNumber.slice(0, 4) === '5038' || cardNumber.slice(0, 4) === '6304') {
+        return 'Maestro';
+    }
+  }
 }
