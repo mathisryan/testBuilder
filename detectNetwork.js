@@ -19,4 +19,13 @@ var detectNetwork = function(cardNumber) {
   if (cardNumber.length === 15) {
     return 'American Express';
   }
+  if (cardNumber.length === 16 && cardNumber.charAt(0) === '5') {
+    return 'MasterCard';
+  }
+  if (cardNumber.length === 13 || cardNumber.length === 19) {
+    return 'Visa';
+  }
+  if (cardNumber.length === 16 && cardNumber.charAt(0) === '4') {
+    return 'Visa';
+  }
 };
